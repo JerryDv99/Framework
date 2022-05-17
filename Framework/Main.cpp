@@ -3,24 +3,39 @@
 
 using namespace std;	// iostream과 세트
 
-typedef struct tagInfo
+//typedef struct tagInfo
+//{
+//	int iNumber;
+//
+//
+//	tagInfo()	// 생성자, 구조체 안에서만 사용 가능
+//	{
+//		cout << "기본 생성자" << endl;	// 초기화 시 생성자 호출
+//	};
+//
+//	tagInfo(int _iNumber)
+//	{
+//		iNumber = _iNumber;
+//		cout << "복사 생성자" << endl;	// 초기화 시 생성자 호출
+//	};
+//
+//
+//}INFO;
+
+typedef struct tagVector3
 {
-	int iNumber;
+	int x, y, z;
+
+	tagVector3() {};	//	기본 생성자 없이는
+
+	tagVector3(int _x, int _y)	// 복사 생성자를 만들 수 없다
+		: x(_x), y(_y), z(0) { };
+
+	tagVector3(int _x, int _y, int _z)
+		: x(_x), y(_y), z(_z) { };
 
 
-	tagInfo()	// 생성자, 구조체 안에서만 사용 가능
-	{
-		cout << "기본 생성자" << endl;	// 초기화 시 생성자 호출
-	};
-
-	tagInfo(int _iNumber)
-	{
-		iNumber = _iNumber;
-		cout << "복사 생성자" << endl;	// 초기화 시 생성자 호출
-	};
-
-
-}INFO;
+}Vector3;
 
 int main(void)
 {
@@ -61,10 +76,18 @@ int main(void)
 
 	//free(pInfo);
 	//delete pInfo;
+	/*INFO* pInfo[10];
 
-	pInfo[10];
 	for (int i = 0; i < 10; ++i)
+	{
+		pInfo[i] = new INFO(i);
+		cout << pInfo[i]->iNumber << endl;
+	}*/
 
+	//for (int i = 0; i < 10; ++i)
+		//cout << pInfo[i]->iNumber << endl;
 
-		return 0;
+	Vector3 vPosition = Vector3(10, 20, 30);
+
+	return 0;
 }
